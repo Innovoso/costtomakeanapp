@@ -1,15 +1,15 @@
 //
-//  ViewController.swift
+//  SecondViewController.swift
 //  CostToMakeAnApp
 //
-//  Created by Mark Cheng on 16/11/15.
+//  Created by Charlie Morris on 17/11/2015.
 //  Copyright © 2015 Mind Fund Studio. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-
+class SecondViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
     @IBOutlet weak var moreInfoButton: UILabel!
     @IBOutlet weak var moreInfoText: UILabel!
     @IBOutlet weak var screenOverlay: UIView!
@@ -26,7 +26,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         // Do any additional setup after loading the view, typically from a nib.
         moreInfoText.text = "Apple iOS is a better choice to reach a more engaged user base. Android has a broader reach, especially in emerging markets like Asia and Africa."
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -36,7 +36,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     // ================
     // COLLECTION VIEWS
     // ================
-
+    
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return descriptions.count
     }
@@ -53,9 +53,9 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             cell.layer.shadowRadius = 2
             cell.layer.shadowOpacity = 0.8
         }
-                
+        
         return cell
-    
+        
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
@@ -68,8 +68,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     // =========
     
     @IBAction func moreInfoButtonPressed(sender: UIButton) {
-//        self.moreInfoButton.text = "Less info"
-
+        self.moreInfoButton.text = "Less info"
+        
         UIView.animateWithDuration(1.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
             self.infoCard.center = CGPoint(x: self.screenSize.width/2, y: self.screenSize.height - 200)
             self.screenOverlay.alpha = 0.5
@@ -80,7 +80,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         for touch in (touches) {
             let location = touch.locationInView(self.view)
-
+            
             if infoCard.frame.contains(location) {
                 infoCard.center = location
             }
@@ -99,11 +99,10 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         UIView.animateWithDuration(1.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
-//                        self.moreInfoButton.setTitle("Hide", forState: UIControlState.Normal)
+            //                        self.moreInfoButton.setTitle("Hide", forState: UIControlState.Normal)
             self.infoCard.center = CGPoint(x: self.screenSize.width/2, y: self.screenSize.height + 100)
             self.screenOverlay.alpha = 0
             }, completion: nil)
     }
-
+    
 }
-

@@ -22,6 +22,7 @@
 		EC0DDEB51BF9CF04000B0E53 /* Noto Sans italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EC0DDEAE1BF9CF04000B0E53 /* Noto Sans italic.ttf */; settings = {ASSET_TAGS = (); }; };
 		EC0DDEB61BF9CF04000B0E53 /* Noto Sans regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EC0DDEAF1BF9CF04000B0E53 /* Noto Sans regular.ttf */; settings = {ASSET_TAGS = (); }; };
 		EC0DDEB81BF9DDF6000B0E53 /* AnswerCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0DDEB71BF9DDF6000B0E53 /* AnswerCardCell.swift */; settings = {ASSET_TAGS = (); }; };
+		EC0DDEBA1BFB05C5000B0E53 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0DDEB91BFB05C5000B0E53 /* SecondViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		EC0DDEAE1BF9CF04000B0E53 /* Noto Sans italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Noto Sans italic.ttf"; sourceTree = "<group>"; };
 		EC0DDEAF1BF9CF04000B0E53 /* Noto Sans regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Noto Sans regular.ttf"; sourceTree = "<group>"; };
 		EC0DDEB71BF9DDF6000B0E53 /* AnswerCardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerCardCell.swift; sourceTree = "<group>"; };
+		EC0DDEB91BFB05C5000B0E53 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				EC0DDEA61BF9CEDF000B0E53 /* Resources */,
 				0CCE27F51BF9C68C0084CF53 /* AppDelegate.swift */,
 				0CCE27F71BF9C68C0084CF53 /* ViewController.swift */,
+				EC0DDEB91BFB05C5000B0E53 /* SecondViewController.swift */,
 				EC0DDEB71BF9DDF6000B0E53 /* AnswerCardCell.swift */,
 				0CCE27F91BF9C68C0084CF53 /* Main.storyboard */,
 				0CCE27FC1BF9C68C0084CF53 /* Assets.xcassets */,
@@ -310,6 +313,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC0DDEBA1BFB05C5000B0E53 /* SecondViewController.swift in Sources */,
 				0CCE27F81BF9C68C0084CF53 /* ViewController.swift in Sources */,
 				EC0DDEB81BF9DDF6000B0E53 /* AnswerCardCell.swift in Sources */,
 				0CCE27F61BF9C68C0084CF53 /* AppDelegate.swift in Sources */,
