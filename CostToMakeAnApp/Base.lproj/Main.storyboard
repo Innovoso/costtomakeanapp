@@ -154,6 +154,7 @@
                                         <connections>
                                             <outlet property="cardImage" destination="DDE-vH-z1n" id="Duv-Gj-Snt"/>
                                             <outlet property="descriptionLabel" destination="0Za-jw-BYn" id="1fv-Pb-kKZ"/>
+                                            <segue destination="LsH-Wj-5eE" kind="show" id="hBU-Oq-91y"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -277,6 +278,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="20"/>
                                         <state key="normal" title="START AGAIN"/>
+                                        <connections>
+                                            <action selector="startAgainButtonPressed:" destination="LsH-Wj-5eE" eventType="touchUpInside" id="JGX-p5-M6D"/>
+                                        </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackArrow" translatesAutoresizingMaskIntoConstraints="NO" id="B1d-tP-HHK">
                                         <rect key="frame" x="18" y="45" width="26" height="19"/>
@@ -297,8 +301,8 @@
                                         <rect key="frame" x="0.0" y="80" width="375" height="4"/>
                                         <animations/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Do people have to login?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LuQ-GB-2iB">
-                                        <rect key="frame" x="28" y="114" width="319" height="60"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do people have to login?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LuQ-GB-2iB">
+                                        <rect key="frame" x="28" y="114" width="319" height="30"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="22"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -327,7 +331,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="K7S-8r-hTh">
-                                <rect key="frame" x="11" y="200" width="353" height="437"/>
+                                <rect key="frame" x="7" y="200" width="361" height="437"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="wBO-Y0-SeX">
@@ -338,7 +342,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="answerCard" id="mZW-xO-Od2" customClass="AnswerCardCell" customModule="CostToMakeAnApp" customModuleProvider="target">
-                                        <rect key="frame" x="5" y="0.0" width="343" height="117"/>
+                                        <rect key="frame" x="9" y="0.0" width="343" height="117"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="117"/>
@@ -380,11 +384,15 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <outlet property="cardImage" destination="sar-2N-aEL" id="V2z-VY-835"/>
-                                            <outlet property="descriptionLabel" destination="ieK-Uj-i8B" id="eVW-sd-GBh"/>
+                                            <outlet property="cardImage" destination="sar-2N-aEL" id="beN-XP-RkB"/>
+                                            <outlet property="descriptionLabel" destination="ieK-Uj-i8B" id="lVb-TK-bQW"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="LsH-Wj-5eE" id="FUi-op-uAZ"/>
+                                    <outlet property="delegate" destination="LsH-Wj-5eE" id="Xch-eZ-hoe"/>
+                                </connections>
                             </collectionView>
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IXq-un-VEZ">
                                 <rect key="frame" x="-4" y="0.0" width="383" height="667"/>
@@ -408,6 +416,9 @@
                                             <constraint firstAttribute="height" constant="33" id="nJr-IS-yXj"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="15"/>
+                                        <connections>
+                                            <action selector="moreInfoButtonPressed:" destination="LsH-Wj-5eE" eventType="touchUpInside" id="f3j-7h-Ub1"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="more info text" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jw4-ZB-Vf1">
                                         <rect key="frame" x="10" y="136" width="303" height="28"/>
@@ -443,25 +454,32 @@
                         <animations/>
                         <color key="backgroundColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="K7S-8r-hTh" firstAttribute="trailing" secondItem="ZQi-ep-xSK" secondAttribute="trailingMargin" constant="5" id="6Ds-0d-43e"/>
                             <constraint firstItem="K7S-8r-hTh" firstAttribute="centerX" secondItem="ZQi-ep-xSK" secondAttribute="centerX" id="6dN-Md-A40"/>
-                            <constraint firstItem="h8H-gi-dCT" firstAttribute="top" secondItem="IXq-un-VEZ" secondAttribute="bottom" id="79h-Pb-zn2"/>
-                            <constraint firstItem="IXq-un-VEZ" firstAttribute="leading" secondItem="ZQi-ep-xSK" secondAttribute="leadingMargin" constant="-20" id="7yn-fm-ZXv"/>
                             <constraint firstAttribute="trailing" secondItem="p1l-nn-9BZ" secondAttribute="trailing" id="8X1-os-flL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="K7S-8r-hTh" secondAttribute="trailing" constant="-9" id="Biw-0U-F4M"/>
                             <constraint firstItem="p1l-nn-9BZ" firstAttribute="leading" secondItem="ZQi-ep-xSK" secondAttribute="leading" id="G9V-X8-tbN"/>
                             <constraint firstItem="K7S-8r-hTh" firstAttribute="top" secondItem="p1l-nn-9BZ" secondAttribute="bottom" id="LgQ-m5-o3I"/>
                             <constraint firstItem="d6U-UG-Ly8" firstAttribute="trailing" secondItem="ZQi-ep-xSK" secondAttribute="trailingMargin" constant="-10" id="NM9-ga-8WK"/>
                             <constraint firstItem="h8H-gi-dCT" firstAttribute="top" secondItem="K7S-8r-hTh" secondAttribute="bottom" constant="30" id="ULC-rI-jci"/>
                             <constraint firstItem="p1l-nn-9BZ" firstAttribute="top" secondItem="ZQi-ep-xSK" secondAttribute="top" id="WJt-n8-a54"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="IXq-un-VEZ" secondAttribute="trailing" constant="-20" id="cRc-ja-GIP"/>
+                            <constraint firstItem="K7S-8r-hTh" firstAttribute="leading" secondItem="ZQi-ep-xSK" secondAttribute="leadingMargin" constant="-9" id="idf-EW-8JN"/>
                             <constraint firstItem="d6U-UG-Ly8" firstAttribute="centerX" secondItem="ZQi-ep-xSK" secondAttribute="centerX" id="khC-9a-XQg"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="K7S-8r-hTh" secondAttribute="trailing" constant="5" id="p7K-rw-lFX"/>
+                            <constraint firstItem="IXq-un-VEZ" firstAttribute="leading" secondItem="ZQi-ep-xSK" secondAttribute="leadingMargin" constant="-20" id="n0l-Be-jPh"/>
                             <constraint firstAttribute="bottomMargin" secondItem="d6U-UG-Ly8" secondAttribute="bottom" constant="-250" id="ree-qy-2cj"/>
-                            <constraint firstItem="IXq-un-VEZ" firstAttribute="top" secondItem="ZQi-ep-xSK" secondAttribute="topMargin" id="vBn-AV-QdY"/>
+                            <constraint firstItem="h8H-gi-dCT" firstAttribute="top" secondItem="IXq-un-VEZ" secondAttribute="bottom" id="tsx-ua-T8o"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="IXq-un-VEZ" secondAttribute="trailing" constant="-20" id="vY3-V7-WdK"/>
+                            <constraint firstItem="IXq-un-VEZ" firstAttribute="top" secondItem="ZQi-ep-xSK" secondAttribute="topMargin" id="xev-rx-9eA"/>
                             <constraint firstItem="d6U-UG-Ly8" firstAttribute="leading" secondItem="ZQi-ep-xSK" secondAttribute="leadingMargin" constant="10" id="yLs-i6-q30"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="collectionView" destination="K7S-8r-hTh" id="3s0-5a-qyH"/>
+                        <outlet property="infoCard" destination="d6U-UG-Ly8" id="aZN-GS-8xV"/>
+                        <outlet property="moreInfoButton" destination="7oJ-j0-uyg" id="XId-Yw-FtO"/>
+                        <outlet property="moreInfoText" destination="Jw4-ZB-Vf1" id="o3e-f7-lFq"/>
+                        <outlet property="screenOverlay" destination="IXq-un-VEZ" id="e35-Gb-3a8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7cb-oe-VVx" sceneMemberID="firstResponder"/>
             </objects>

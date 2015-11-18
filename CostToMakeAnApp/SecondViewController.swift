@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SecondViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class SecondViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, InnerSlideViewController {
     
     @IBOutlet weak var moreInfoButton: UILabel!
     @IBOutlet weak var moreInfoText: UILabel!
@@ -16,20 +16,26 @@ class SecondViewController: UIViewController, UICollectionViewDataSource, UIColl
     @IBOutlet weak var infoCard: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    let descriptions = ["Android", "Apple iOS", "Android and Apple iOS"]
-    let images = [UIImage(named: "Android"), UIImage(named: "iOS"), UIImage(named: "iOS and Android")]
+    let descriptions = ["Email", "Social", "None", "I don't know"]
+    let images = [UIImage(named: "Email"), UIImage(named: "Social"), UIImage(named: "None"), UIImage(named: "?")]
     var screenSize: CGRect = UIScreen.mainScreen().bounds
-    
+    let transitionManager = TransitionManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        moreInfoText.text = "Apple iOS is a better choice to reach a more engaged user base. Android has a broader reach, especially in emerging markets like Asia and Africa."
+        moreInfoText.text = "An email login is generally best to start with unless your app will have tight integration with services like Facebook or Twitter, in which case social login is better."
+        self.transitioningDelegate = self.transitionManager
+
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func startAgainButtonPressed(sender: UIButton) {
+        self.dismissViewControllerAnimated(true, completion: {});
     }
     
     
@@ -68,8 +74,6 @@ class SecondViewController: UIViewController, UICollectionViewDataSource, UIColl
     // =========
     
     @IBAction func moreInfoButtonPressed(sender: UIButton) {
-        self.moreInfoButton.text = "Less info"
-        
         UIView.animateWithDuration(1.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
             self.infoCard.center = CGPoint(x: self.screenSize.width/2, y: self.screenSize.height - 200)
             self.screenOverlay.alpha = 0.5
@@ -98,11 +102,20 @@ class SecondViewController: UIViewController, UICollectionViewDataSource, UIColl
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        UIView.animateWithDuration(1.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
+        UIView.animateWithDuration(1.0, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.5, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
             //                        self.moreInfoButton.setTitle("Hide", forState: UIControlState.Normal)
             self.infoCard.center = CGPoint(x: self.screenSize.width/2, y: self.screenSize.height + 100)
             self.screenOverlay.alpha = 0
             }, completion: nil)
+    }
+    
+    
+    // ==============================
+    // TRANSITION MANAGER DATA SOURCE
+    // ==============================
+    
+    func viewsToSlide() -> [UIView] {
+        return [collectionView, infoCard]
     }
     
 }

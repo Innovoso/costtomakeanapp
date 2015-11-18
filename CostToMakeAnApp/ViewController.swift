@@ -20,12 +20,12 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     let images = [UIImage(named: "Android"), UIImage(named: "iOS"), UIImage(named: "iOS and Android")]
     var screenSize: CGRect = UIScreen.mainScreen().bounds
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         moreInfoText.text = "Apple iOS is a better choice to reach a more engaged user base. Android has a broader reach, especially in emerging markets like Asia and Africa."
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -53,7 +53,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             cell.layer.shadowRadius = 2
             cell.layer.shadowOpacity = 0.8
         }
-                
+        
         return cell
     
     }
@@ -62,14 +62,22 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         return 20
     }
     
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        if let cell = collectionView.cellForItemAtIndexPath(indexPath) as? AnswerCardCell {
+            UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
+                cell.backgroundColor = UIColor(red: 233/255, green: 105/255, blue: 105/255, alpha: 1.0)
+                }, completion: nil)
+        }
+    }
+    
+    
+    
     
     // =========
     // INFO CARD
     // =========
     
     @IBAction func moreInfoButtonPressed(sender: UIButton) {
-//        self.moreInfoButton.text = "Less info"
-
         UIView.animateWithDuration(1.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
             self.infoCard.center = CGPoint(x: self.screenSize.width/2, y: self.screenSize.height - 200)
             self.screenOverlay.alpha = 0.5
@@ -98,8 +106,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        UIView.animateWithDuration(1.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
-//                        self.moreInfoButton.setTitle("Hide", forState: UIControlState.Normal)
+        UIView.animateWithDuration(1.0, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.5, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
             self.infoCard.center = CGPoint(x: self.screenSize.width/2, y: self.screenSize.height + 100)
             self.screenOverlay.alpha = 0
             }, completion: nil)
