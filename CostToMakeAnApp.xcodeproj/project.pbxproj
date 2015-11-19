@@ -23,6 +23,7 @@
 		EC0DDEB61BF9CF04000B0E53 /* Noto Sans regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EC0DDEAF1BF9CF04000B0E53 /* Noto Sans regular.ttf */; settings = {ASSET_TAGS = (); }; };
 		EC0DDEB81BF9DDF6000B0E53 /* AnswerCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0DDEB71BF9DDF6000B0E53 /* AnswerCardCell.swift */; settings = {ASSET_TAGS = (); }; };
 		EC0DDEBA1BFB05C5000B0E53 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0DDEB91BFB05C5000B0E53 /* QuestionViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		EC0DDEC01BFD71A2000B0E53 /* HomePageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0DDEBF1BFD71A2000B0E53 /* HomePageCell.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		EC0DDEAF1BF9CF04000B0E53 /* Noto Sans regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Noto Sans regular.ttf"; sourceTree = "<group>"; };
 		EC0DDEB71BF9DDF6000B0E53 /* AnswerCardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerCardCell.swift; sourceTree = "<group>"; };
 		EC0DDEB91BFB05C5000B0E53 /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
+		EC0DDEBF1BFD71A2000B0E53 /* HomePageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				EC0DDEA61BF9CEDF000B0E53 /* Resources */,
 				0CCE27F51BF9C68C0084CF53 /* AppDelegate.swift */,
 				0CCE27F71BF9C68C0084CF53 /* HomeViewController.swift */,
+				EC0DDEBF1BFD71A2000B0E53 /* HomePageCell.swift */,
 				EC0DDEB91BFB05C5000B0E53 /* QuestionViewController.swift */,
 				EC0DDEB71BF9DDF6000B0E53 /* AnswerCardCell.swift */,
 				0CCE27F91BF9C68C0084CF53 /* Main.storyboard */,
@@ -316,6 +319,7 @@
 				EC0DDEBA1BFB05C5000B0E53 /* QuestionViewController.swift in Sources */,
 				0CCE27F81BF9C68C0084CF53 /* HomeViewController.swift in Sources */,
 				EC0DDEB81BF9DDF6000B0E53 /* AnswerCardCell.swift in Sources */,
+				EC0DDEC01BFD71A2000B0E53 /* HomePageCell.swift in Sources */,
 				0CCE27F61BF9C68C0084CF53 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

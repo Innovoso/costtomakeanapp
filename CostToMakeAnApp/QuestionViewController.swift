@@ -10,23 +10,31 @@ import UIKit
 
 class QuestionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    @IBOutlet weak var screenOverlay: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     
     let descriptions = ["Email", "Social", "None", "I don't know"]
     let images = [UIImage(named: "Email"), UIImage(named: "Social"), UIImage(named: "None"), UIImage(named: "?")]
     var screenSize: CGRect = UIScreen.mainScreen().bounds
     
+    // ====
+    // INIT
+    // ====
+    
+    class func loadFromNib() -> QuestionViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewControllerWithIdentifier("QuestionViewController") as! QuestionViewController
+        return vc
+    }
+    
+    
+    // =========
+    // LIFECYCLE
+    // =========
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     
     // ================
     // COLLECTION VIEWS
@@ -48,7 +56,7 @@ class QuestionViewController: UIViewController, UICollectionViewDataSource, UICo
             cell.layer.shadowRadius = 2
             cell.layer.shadowOpacity = 0.8
         }
-        
+
         return cell
         
     }

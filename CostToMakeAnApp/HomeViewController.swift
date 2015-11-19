@@ -8,14 +8,13 @@
 
 import UIKit
 
-//class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-class HomeViewController: UIViewController {
-
+class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var moreInfoButton: UILabel!
     @IBOutlet weak var moreInfoText: UILabel!
     @IBOutlet weak var screenOverlay: UIView!
     @IBOutlet weak var infoCard: UIView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     var screenSize: CGRect = UIScreen.mainScreen().bounds
     
@@ -23,13 +22,49 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         moreInfoText.text = "Apple iOS is a better choice to reach a more engaged user base. Android has a broader reach, especially in emerging markets like Asia and Africa."
+        collectionView.dataSource = self
+        collectionView.delegate = self
     }
     
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    // ===============
+    // COLLECTION VIEW
+    // ===============
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 3
     }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("homePageCell", forIndexPath: indexPath)
+        return cell
+    }
+    
+    func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("homePageCell", forIndexPath: indexPath)
+
+        if let cell = cell as? HomePageCell {
+            cell.addViewControllerToParentViewController(self)
+        }
+    }
+    
+    func collectionView(collectionView: UICollectionView, didEndDisplayingCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("homePageCell", forIndexPath: indexPath)
+        
+        if let cell = cell as? HomePageCell {
+            cell.removeViewControllerFromParentViewController()
+        }
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return 20
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        let width = collectionView.bounds.width
+        let height = collectionView.bounds.height
+        return CGSizeMake(width, height)
+    }
+
     
     // =========
     // INFO CARD
