@@ -8,16 +8,15 @@
 
 import UIKit
 
-class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+//class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class HomeViewController: UIViewController {
+
 
     @IBOutlet weak var moreInfoButton: UILabel!
     @IBOutlet weak var moreInfoText: UILabel!
     @IBOutlet weak var screenOverlay: UIView!
     @IBOutlet weak var infoCard: UIView!
-    @IBOutlet weak var collectionView: UICollectionView!
     
-    let descriptions = ["Android", "Apple iOS", "Android and Apple iOS"]
-    let images = [UIImage(named: "Android"), UIImage(named: "iOS"), UIImage(named: "iOS and Android")]
     var screenSize: CGRect = UIScreen.mainScreen().bounds
     
     override func viewDidLoad() {
@@ -31,47 +30,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-    // ================
-    // COLLECTION VIEWS
-    // ================
-
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return descriptions.count
-    }
-    
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("answerCard", forIndexPath: indexPath)
-        
-        if let cell = cell as? AnswerCardCell {
-            let description = descriptions[indexPath.row]
-            let image = images[indexPath.row]
-            cell.configure(description, image: image)
-            cell.layer.shadowColor = UIColor.blackColor().CGColor
-            cell.layer.shadowOffset = CGSizeMake(0, 2)
-            cell.layer.shadowRadius = 2
-            cell.layer.shadowOpacity = 0.8
-        }
-        
-        return cell
-    
-    }
-    
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
-        return 20
-    }
-    
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        if let cell = collectionView.cellForItemAtIndexPath(indexPath) as? AnswerCardCell {
-            UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
-                cell.backgroundColor = UIColor(red: 233/255, green: 105/255, blue: 105/255, alpha: 1.0)
-                }, completion: nil)
-        }
-    }
-    
-    
-    
     
     // =========
     // INFO CARD
