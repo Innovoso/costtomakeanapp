@@ -14,6 +14,16 @@
 		0CCE28001BF9C68C0084CF53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CCE27FE1BF9C68C0084CF53 /* LaunchScreen.storyboard */; };
 		0CCE280B1BF9C68C0084CF53 /* CostToMakeAnAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCE280A1BF9C68C0084CF53 /* CostToMakeAnAppTests.swift */; };
 		0CCE28161BF9C68C0084CF53 /* CostToMakeAnAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCE28151BF9C68C0084CF53 /* CostToMakeAnAppUITests.swift */; };
+		EC0DDEB01BF9CF04000B0E53 /* LICENSE-2.0.txt in Resources */ = {isa = PBXBuildFile; fileRef = EC0DDEA91BF9CF04000B0E53 /* LICENSE-2.0.txt */; settings = {ASSET_TAGS = (); }; };
+		EC0DDEB11BF9CF04000B0E53 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = EC0DDEAA1BF9CF04000B0E53 /* OFL.txt */; settings = {ASSET_TAGS = (); }; };
+		EC0DDEB21BF9CF04000B0E53 /* ubuntu-font-licence-1.0.txt in Resources */ = {isa = PBXBuildFile; fileRef = EC0DDEAB1BF9CF04000B0E53 /* ubuntu-font-licence-1.0.txt */; settings = {ASSET_TAGS = (); }; };
+		EC0DDEB31BF9CF04000B0E53 /* Noto Sans 700.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EC0DDEAC1BF9CF04000B0E53 /* Noto Sans 700.ttf */; settings = {ASSET_TAGS = (); }; };
+		EC0DDEB41BF9CF04000B0E53 /* Noto Sans 700italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EC0DDEAD1BF9CF04000B0E53 /* Noto Sans 700italic.ttf */; settings = {ASSET_TAGS = (); }; };
+		EC0DDEB51BF9CF04000B0E53 /* Noto Sans italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EC0DDEAE1BF9CF04000B0E53 /* Noto Sans italic.ttf */; settings = {ASSET_TAGS = (); }; };
+		EC0DDEB61BF9CF04000B0E53 /* Noto Sans regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EC0DDEAF1BF9CF04000B0E53 /* Noto Sans regular.ttf */; settings = {ASSET_TAGS = (); }; };
+		EC0DDEB81BF9DDF6000B0E53 /* AnswerCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0DDEB71BF9DDF6000B0E53 /* AnswerCardCell.swift */; settings = {ASSET_TAGS = (); }; };
+		EC0DDEBA1BFB05C5000B0E53 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0DDEB91BFB05C5000B0E53 /* SecondViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		EC0DDEBC1BFB0CE8000B0E53 /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0DDEBB1BFB0CE8000B0E53 /* TransitionManager.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +57,16 @@
 		0CCE28111BF9C68C0084CF53 /* CostToMakeAnAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CostToMakeAnAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CCE28151BF9C68C0084CF53 /* CostToMakeAnAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostToMakeAnAppUITests.swift; sourceTree = "<group>"; };
 		0CCE28171BF9C68C0084CF53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC0DDEA91BF9CF04000B0E53 /* LICENSE-2.0.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "LICENSE-2.0.txt"; sourceTree = "<group>"; };
+		EC0DDEAA1BF9CF04000B0E53 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
+		EC0DDEAB1BF9CF04000B0E53 /* ubuntu-font-licence-1.0.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "ubuntu-font-licence-1.0.txt"; sourceTree = "<group>"; };
+		EC0DDEAC1BF9CF04000B0E53 /* Noto Sans 700.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Noto Sans 700.ttf"; sourceTree = "<group>"; };
+		EC0DDEAD1BF9CF04000B0E53 /* Noto Sans 700italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Noto Sans 700italic.ttf"; sourceTree = "<group>"; };
+		EC0DDEAE1BF9CF04000B0E53 /* Noto Sans italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Noto Sans italic.ttf"; sourceTree = "<group>"; };
+		EC0DDEAF1BF9CF04000B0E53 /* Noto Sans regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Noto Sans regular.ttf"; sourceTree = "<group>"; };
+		EC0DDEB71BF9DDF6000B0E53 /* AnswerCardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerCardCell.swift; sourceTree = "<group>"; };
+		EC0DDEB91BFB05C5000B0E53 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		EC0DDEBB1BFB0CE8000B0E53 /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,9 +117,13 @@
 		0CCE27F41BF9C68C0084CF53 /* CostToMakeAnApp */ = {
 			isa = PBXGroup;
 			children = (
+				EC0DDEA61BF9CEDF000B0E53 /* Resources */,
 				0CCE27F51BF9C68C0084CF53 /* AppDelegate.swift */,
 				0CCE27F71BF9C68C0084CF53 /* ViewController.swift */,
+				EC0DDEB91BFB05C5000B0E53 /* SecondViewController.swift */,
+				EC0DDEB71BF9DDF6000B0E53 /* AnswerCardCell.swift */,
 				0CCE27F91BF9C68C0084CF53 /* Main.storyboard */,
+				EC0DDEBB1BFB0CE8000B0E53 /* TransitionManager.swift */,
 				0CCE27FC1BF9C68C0084CF53 /* Assets.xcassets */,
 				0CCE27FE1BF9C68C0084CF53 /* LaunchScreen.storyboard */,
 				0CCE28011BF9C68C0084CF53 /* Info.plist */,
@@ -123,6 +147,36 @@
 				0CCE28171BF9C68C0084CF53 /* Info.plist */,
 			);
 			path = CostToMakeAnAppUITests;
+			sourceTree = "<group>";
+		};
+		EC0DDEA61BF9CEDF000B0E53 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EC0DDEA71BF9CEF3000B0E53 /* Fonts */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		EC0DDEA71BF9CEF3000B0E53 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				EC0DDEA81BF9CF04000B0E53 /* License */,
+				EC0DDEAC1BF9CF04000B0E53 /* Noto Sans 700.ttf */,
+				EC0DDEAD1BF9CF04000B0E53 /* Noto Sans 700italic.ttf */,
+				EC0DDEAE1BF9CF04000B0E53 /* Noto Sans italic.ttf */,
+				EC0DDEAF1BF9CF04000B0E53 /* Noto Sans regular.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+		EC0DDEA81BF9CF04000B0E53 /* License */ = {
+			isa = PBXGroup;
+			children = (
+				EC0DDEA91BF9CF04000B0E53 /* LICENSE-2.0.txt */,
+				EC0DDEAA1BF9CF04000B0E53 /* OFL.txt */,
+				EC0DDEAB1BF9CF04000B0E53 /* ubuntu-font-licence-1.0.txt */,
+			);
+			path = License;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,8 +282,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC0DDEB11BF9CF04000B0E53 /* OFL.txt in Resources */,
 				0CCE28001BF9C68C0084CF53 /* LaunchScreen.storyboard in Resources */,
+				EC0DDEB31BF9CF04000B0E53 /* Noto Sans 700.ttf in Resources */,
+				EC0DDEB01BF9CF04000B0E53 /* LICENSE-2.0.txt in Resources */,
+				EC0DDEB61BF9CF04000B0E53 /* Noto Sans regular.ttf in Resources */,
 				0CCE27FD1BF9C68C0084CF53 /* Assets.xcassets in Resources */,
+				EC0DDEB41BF9CF04000B0E53 /* Noto Sans 700italic.ttf in Resources */,
+				EC0DDEB21BF9CF04000B0E53 /* ubuntu-font-licence-1.0.txt in Resources */,
+				EC0DDEB51BF9CF04000B0E53 /* Noto Sans italic.ttf in Resources */,
 				0CCE27FB1BF9C68C0084CF53 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -255,7 +316,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC0DDEBA1BFB05C5000B0E53 /* SecondViewController.swift in Sources */,
+				EC0DDEBC1BFB0CE8000B0E53 /* TransitionManager.swift in Sources */,
 				0CCE27F81BF9C68C0084CF53 /* ViewController.swift in Sources */,
+				EC0DDEB81BF9DDF6000B0E53 /* AnswerCardCell.swift in Sources */,
 				0CCE27F61BF9C68C0084CF53 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -483,6 +547,7 @@
 				0CCE281C1BF9C68C0084CF53 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0CCE281D1BF9C68C0084CF53 /* Build configuration list for PBXNativeTarget "CostToMakeAnAppTests" */ = {
 			isa = XCConfigurationList;
@@ -491,6 +556,7 @@
 				0CCE281F1BF9C68C0084CF53 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0CCE28201BF9C68C0084CF53 /* Build configuration list for PBXNativeTarget "CostToMakeAnAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -499,6 +565,7 @@
 				0CCE28221BF9C68C0084CF53 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
