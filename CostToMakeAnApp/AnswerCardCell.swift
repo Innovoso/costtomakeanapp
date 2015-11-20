@@ -16,6 +16,5 @@ class AnswerCardCell: UICollectionViewCell {
     func configure(description: String?, image:UIImage?) {
         descriptionLabel.text = description
         cardImage.image = image
-    }
-    
+    }    
 }

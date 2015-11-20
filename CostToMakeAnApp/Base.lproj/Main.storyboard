@@ -42,6 +42,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="20"/>
                                         <state key="normal" title="START AGAIN"/>
+                                        <connections>
+                                            <action selector="startAgainButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kyW-vM-ykS"/>
+                                        </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackArrow" translatesAutoresizingMaskIntoConstraints="NO" id="oP9-TK-oZU">
                                         <rect key="frame" x="18" y="45" width="26" height="19"/>
@@ -80,15 +83,10 @@
                                     <constraint firstAttribute="height" constant="200" id="tiB-91-TRO"/>
                                 </constraints>
                             </view>
-                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ln-et-U3E">
-                                <rect key="frame" x="-4" y="0.0" width="383" height="667"/>
-                                <animations/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tbg-ey-ruQ">
                                 <rect key="frame" x="0.0" y="89" width="375" height="528"/>
                                 <animations/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Hpd-Fd-kwt">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Hpd-Fd-kwt">
                                     <size key="itemSize" width="313" height="403"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -96,7 +94,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="homePageCell" id="6zL-wp-laN" customClass="HomePageCell" customModule="CostToMakeAnApp" customModuleProvider="target">
-                                        <rect key="frame" x="31" y="0.0" width="313" height="403"/>
+                                        <rect key="frame" x="0.0" y="63" width="313" height="403"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="313" height="403"/>
@@ -105,10 +103,15 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <animations/>
-                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ln-et-U3E">
+                                <rect key="frame" x="-4" y="0.0" width="383" height="667"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qoB-85-sFj">
                                 <rect key="frame" x="26" y="617" width="323" height="300"/>
                                 <subviews>
@@ -209,8 +212,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p1l-nn-9BZ">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do people have to login?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LuQ-GB-2iB">
-                                        <rect key="frame" x="28" y="114" width="319" height="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What type of app are you building" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LuQ-GB-2iB">
+                                        <rect key="frame" x="28" y="15" width="319" height="66"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="22"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -220,7 +223,7 @@
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="LuQ-GB-2iB" firstAttribute="top" secondItem="p1l-nn-9BZ" secondAttribute="topMargin" constant="106" id="5Xk-yl-nJ0"/>
+                                    <constraint firstItem="LuQ-GB-2iB" firstAttribute="top" secondItem="p1l-nn-9BZ" secondAttribute="topMargin" constant="7" id="5Xk-yl-nJ0"/>
                                     <constraint firstItem="LuQ-GB-2iB" firstAttribute="leading" secondItem="p1l-nn-9BZ" secondAttribute="leadingMargin" constant="20" id="CLD-Dh-w5g"/>
                                     <constraint firstItem="LuQ-GB-2iB" firstAttribute="centerX" secondItem="p1l-nn-9BZ" secondAttribute="centerX" id="Ofr-ft-lHh"/>
                                     <constraint firstAttribute="height" constant="200" id="YDH-Ad-ojS"/>
@@ -228,7 +231,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="K7S-8r-hTh">
-                                <rect key="frame" x="7" y="200" width="361" height="437"/>
+                                <rect key="frame" x="-1" y="106" width="377" height="561"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="wBO-Y0-SeX">
@@ -239,7 +242,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="answerCard" id="mZW-xO-Od2" customClass="AnswerCardCell" customModule="CostToMakeAnApp" customModuleProvider="target">
-                                        <rect key="frame" x="9" y="0.0" width="343" height="117"/>
+                                        <rect key="frame" x="17" y="0.0" width="343" height="117"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="117"/>
@@ -293,21 +296,23 @@
                             </collectionView>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" red="0.8980392157" green="0.1137254902" blue="0.18039215689999999" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="K7S-8r-hTh" firstAttribute="centerX" secondItem="ZQi-ep-xSK" secondAttribute="centerX" id="6dN-Md-A40"/>
                             <constraint firstAttribute="trailing" secondItem="p1l-nn-9BZ" secondAttribute="trailing" id="8X1-os-flL"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="K7S-8r-hTh" secondAttribute="trailing" constant="-9" id="Biw-0U-F4M"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="K7S-8r-hTh" secondAttribute="trailing" constant="-17" id="Biw-0U-F4M"/>
                             <constraint firstItem="p1l-nn-9BZ" firstAttribute="leading" secondItem="ZQi-ep-xSK" secondAttribute="leading" id="G9V-X8-tbN"/>
-                            <constraint firstItem="K7S-8r-hTh" firstAttribute="top" secondItem="p1l-nn-9BZ" secondAttribute="bottom" id="LgQ-m5-o3I"/>
-                            <constraint firstItem="h8H-gi-dCT" firstAttribute="top" secondItem="K7S-8r-hTh" secondAttribute="bottom" constant="30" id="ULC-rI-jci"/>
+                            <constraint firstItem="K7S-8r-hTh" firstAttribute="top" secondItem="p1l-nn-9BZ" secondAttribute="bottom" constant="-94" id="LgQ-m5-o3I"/>
+                            <constraint firstItem="h8H-gi-dCT" firstAttribute="top" secondItem="K7S-8r-hTh" secondAttribute="bottom" id="ULC-rI-jci"/>
                             <constraint firstItem="p1l-nn-9BZ" firstAttribute="top" secondItem="ZQi-ep-xSK" secondAttribute="top" id="WJt-n8-a54"/>
-                            <constraint firstItem="K7S-8r-hTh" firstAttribute="leading" secondItem="ZQi-ep-xSK" secondAttribute="leadingMargin" constant="-9" id="idf-EW-8JN"/>
+                            <constraint firstItem="K7S-8r-hTh" firstAttribute="top" secondItem="LuQ-GB-2iB" secondAttribute="bottom" constant="25" id="g7W-7L-9eb"/>
+                            <constraint firstItem="K7S-8r-hTh" firstAttribute="leading" secondItem="ZQi-ep-xSK" secondAttribute="leadingMargin" constant="-17" id="idf-EW-8JN"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="collectionView" destination="K7S-8r-hTh" id="3s0-5a-qyH"/>
+                        <outlet property="questionLabel" destination="LuQ-GB-2iB" id="Jnd-wC-F3J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7cb-oe-VVx" sceneMemberID="firstResponder"/>

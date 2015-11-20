@@ -11,6 +11,7 @@ import UIKit
 class HomePageCell: UICollectionViewCell {
     
     lazy var contentViewController:UIViewController = self.createQuestionVC()
+    var cellNumber:Int = 0
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -19,6 +20,9 @@ class HomePageCell: UICollectionViewCell {
     
     func addViewControllerToParentViewController(parentViewController: UIViewController) {
         parentViewController.addChildViewController(contentViewController)
+        if let vc = contentViewController as? QuestionViewController {
+            vc.questionNumber = cellNumber
+        }
         contentViewController.didMoveToParentViewController(parentViewController)
         contentViewController.view.frame = contentView.bounds
         contentView.insertSubview(contentViewController.view, atIndex: 99)
@@ -30,8 +34,12 @@ class HomePageCell: UICollectionViewCell {
         contentViewController.removeFromParentViewController()
     }
     
+    func configure(questionNumber: Int?) {
+        cellNumber = questionNumber!
+    }
+    
     private func createQuestionVC() -> UIViewController {
-        let vc = QuestionViewController.loadFromNib()
+        let vc = QuestionViewController.loadFromNib(cellNumber)
         contentView.insertSubview(vc.view, atIndex: 99)
         return vc
     }
