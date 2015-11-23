@@ -43,7 +43,7 @@
                                         <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="20"/>
                                         <state key="normal" title="START AGAIN"/>
                                         <connections>
-                                            <action selector="startAgainButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kyW-vM-ykS"/>
+                                            <action selector="startAgainButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LJU-TE-e82"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackArrow" translatesAutoresizingMaskIntoConstraints="NO" id="oP9-TK-oZU">

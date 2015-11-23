@@ -8,6 +8,10 @@
 
 import UIKit
 
+@objc protocol QuestionViewControllerDelegate {
+    func questionViewController(vc:QuestionViewController, didSelectItem:NSIndexPath)
+}
+
 class QuestionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var questionLabel: UILabel!
@@ -19,7 +23,7 @@ class QuestionViewController: UIViewController, UICollectionViewDataSource, UICo
     
     var questionNumber:Int = 0
     var screenSize: CGRect = UIScreen.mainScreen().bounds
-    
+    weak var delegate:QuestionViewControllerDelegate?
     
     // ====
     // INIT
@@ -46,7 +50,7 @@ class QuestionViewController: UIViewController, UICollectionViewDataSource, UICo
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         questionLabel.text = Questions(rawValue: questionNumber)?.title
-        collectionView.reloadData()
+        collectionView.reloadData()        
     }
     
     // ================
@@ -78,8 +82,14 @@ class QuestionViewController: UIViewController, UICollectionViewDataSource, UICo
         if let cell = collectionView.cellForItemAtIndexPath(indexPath) as? AnswerCardCell {
             UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
                 cell.backgroundColor = UIColor(red: 233/255, green: 105/255, blue: 105/255, alpha: 1.0)
-//                cell.center = CGPoint(x: 0, y: 0)
-                }, completion: nil)
+                
+                }, completion: { finished in
+                self.delegate?.questionViewController(self, didSelectItem: indexPath)
+                
+                Helper.delay(1.0) {
+                    cell.backgroundColor = UIColor(red: 246/255, green: 246/255, blue: 246/255, alpha: 1.0)
+                }
+            })
         }
     }
     
