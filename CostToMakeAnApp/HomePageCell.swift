@@ -10,7 +10,7 @@ import UIKit
 
 class HomePageCell: UICollectionViewCell {
     
-    lazy var contentViewController:UIViewController = self.createQuestionVC()
+    lazy var contentViewController:QuestionViewController = self.createQuestionVC()
     var cellNumber:Int = 0
     
     override func layoutSubviews() {
@@ -38,7 +38,7 @@ class HomePageCell: UICollectionViewCell {
         cellNumber = questionNumber!
     }
     
-    private func createQuestionVC() -> UIViewController {
+    private func createQuestionVC() -> QuestionViewController {
         let vc = QuestionViewController.loadFromNib(cellNumber)
         contentView.insertSubview(vc.view, atIndex: 99)
         return vc

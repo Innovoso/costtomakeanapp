@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate, QuestionViewControllerDelegate {
 
     @IBOutlet weak var moreInfoButton: UILabel!
     @IBOutlet weak var moreInfoText: UILabel!
@@ -23,15 +23,15 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         // Do any additional setup after loading the view, typically from a nib.
         collectionView.dataSource = self
         collectionView.delegate = self
+        collectionView.scrollEnabled = false
     }
-    
     
     // ============
     // START BUTTON
     // ============
     
     @IBAction func startAgainButtonTapped(sender: UIButton) {
-
+        moveToNextQuestion(0)
     }
     
     // ===============
@@ -39,11 +39,15 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     // ===============
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return Questions.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("homePageCell", forIndexPath: indexPath)
+        if let cell = cell as? HomePageCell {
+            cell.contentViewController.delegate = self
+        }
+        
         return cell
     }
     
@@ -67,6 +71,15 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         let width = collectionView.bounds.width
         let height = collectionView.bounds.height
         return CGSizeMake(width, height)
+    }
+    
+    
+    // =================================
+    // QUESTION VIEW CONTROLLER DELEGATE
+    // =================================
+
+    func questionViewController(vc: QuestionViewController, didSelectItem: NSIndexPath) {
+        moveToNextQuestion(vc.questionNumber + 1)
     }
     
     
@@ -109,5 +122,14 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             }, completion: nil)
     }
 
+    
+    // =======
+    // HELPERS
+    // =======
+    
+    func moveToNextQuestion(questionNumber: Int) {
+        let newIndex = NSIndexPath(forItem: questionNumber, inSection: 0)
+        self.collectionView?.scrollToItemAtIndexPath(newIndex, atScrollPosition: UICollectionViewScrollPosition.Left, animated: true)
+    }
 }
 
