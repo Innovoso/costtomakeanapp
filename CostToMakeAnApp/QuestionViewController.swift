@@ -17,13 +17,10 @@ class QuestionViewController: UIViewController, UICollectionViewDataSource, UICo
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
-//    let question = Questions
-//    let descriptions = Questions.description
-//    let images = Questions.images
-    
     var questionNumber:Int = 0
     var screenSize: CGRect = UIScreen.mainScreen().bounds
     weak var delegate:QuestionViewControllerDelegate?
+    
     
     // ====
     // INIT
@@ -41,17 +38,12 @@ class QuestionViewController: UIViewController, UICollectionViewDataSource, UICo
     // LIFECYCLE
     // =========
     
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        // Do any additional setup after loading the view, typically from a nib.
-//        questionLabel.text = question[questionNumber]
-//    }
-    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         questionLabel.text = Questions(rawValue: questionNumber)?.title
         collectionView.reloadData()        
     }
+    
     
     // ================
     // COLLECTION VIEWS
@@ -82,13 +74,15 @@ class QuestionViewController: UIViewController, UICollectionViewDataSource, UICo
         if let cell = collectionView.cellForItemAtIndexPath(indexPath) as? AnswerCardCell {
             UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
                 cell.backgroundColor = UIColor(red: 233/255, green: 105/255, blue: 105/255, alpha: 1.0)
+                OptionsManager.sharedInstance.addToPrice(indexPath.row)
                 
                 }, completion: { finished in
                 self.delegate?.questionViewController(self, didSelectItem: indexPath)
-                
+                    
                 Helper.delay(1.0) {
                     cell.backgroundColor = UIColor(red: 246/255, green: 246/255, blue: 246/255, alpha: 1.0)
                 }
+                    
             })
         }
     }

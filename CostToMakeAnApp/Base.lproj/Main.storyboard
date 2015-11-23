@@ -94,7 +94,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="homePageCell" id="6zL-wp-laN" customClass="HomePageCell" customModule="CostToMakeAnApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="63" width="313" height="403"/>
+                                        <rect key="frame" x="0.0" y="62.5" width="313" height="403"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="313" height="403"/>
@@ -137,7 +137,7 @@
                                         <rect key="frame" x="10" y="136" width="303" height="28"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="20"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -191,6 +191,7 @@
                         <outlet property="moreInfoButton" destination="LfC-Ma-udV" id="ZBz-a8-g53"/>
                         <outlet property="moreInfoText" destination="jT1-vg-2X6" id="IDL-Vr-R0I"/>
                         <outlet property="screenOverlay" destination="1ln-et-U3E" id="dcr-f4-XCQ"/>
+                        <outlet property="totalCostLabel" destination="m8c-Rv-cMT" id="FVM-Kw-HIy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -216,7 +217,7 @@
                                         <rect key="frame" x="28" y="15" width="319" height="66"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="22"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -317,7 +318,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7cb-oe-VVx" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1142.5" y="466.5"/>
+            <point key="canvasLocation" x="1014.5" y="466.5"/>
         </scene>
     </scenes>
     <resources>
