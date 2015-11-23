@@ -15,6 +15,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     @IBOutlet weak var screenOverlay: UIView!
     @IBOutlet weak var infoCard: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var totalCostLabel: UILabel!
     
     var screenSize: CGRect = UIScreen.mainScreen().bounds
     
@@ -24,6 +25,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.scrollEnabled = false
+        OptionsManager.sharedInstance.totalCostLabel = totalCostLabel
     }
     
     // ============
@@ -32,6 +34,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     @IBAction func startAgainButtonTapped(sender: UIButton) {
         moveToNextQuestion(0)
+        OptionsManager.sharedInstance.startAgainButtonTapped()
     }
     
     // ===============
@@ -79,7 +82,11 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     // =================================
 
     func questionViewController(vc: QuestionViewController, didSelectItem: NSIndexPath) {
-        moveToNextQuestion(vc.questionNumber + 1)
+        if vc.questionNumber + 1 < Questions.count {
+            moveToNextQuestion(vc.questionNumber + 1)
+        } else {
+            print("This is the last question")
+        }
     }
     
     
