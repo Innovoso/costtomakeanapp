@@ -34,7 +34,7 @@ enum Questions:Int {
     }
     
     var descriptions:Array<String> {
-        switch self{
+        switch self {
         case .AppType:
             return ["Android", "Apple iOS", "Android and Apple iOS"]
         case .Login:
@@ -51,6 +51,27 @@ enum Questions:Int {
             return ["Bare-bones", "Stock", "Beautiful"]
         case .Icon:
             return ["Yes", "No", "I don't know"]
+        }
+    }
+    
+    var summaryDescriptions:Array<String> {
+        switch self {
+        case .AppType:
+            return ["Built in Android", "Built in Apple iOS", "Built in Android and Apple iOS"]
+        case .Login:
+            return ["Login with Email", "Login with Social", "No login required", "I don't know if I need login"]
+        case .Profiles:
+            return ["Yes, there will be profiles", "No, there will be no profiles", "I don't know if I need profiles"]
+        case .MoneyMaking:
+            return ["Making money through upfront cost", "Making money through in-app purchases", "I won't make money from the app", "I don't know how I'll make money"]
+        case .RateOrReview:
+            return ["Yes, people will rate and review things", "No, people will not rate or review things", "I don't know if people will rate or review things"]
+        case .API:
+            return ["Yes, it will need to connect to a website", "No, it will not need to connect to a website", "I don't know if it will connect to a website"]
+        case .Design:
+            return ["The app only needs bare-bones design", "The app needs stock design", "The app needs to be beautifully designed"]
+        case .Icon:
+            return ["Yes, I will need an app icon", "No, I will not need an app icon", "I don't know if I will need an app icon"]
         }
     }
     

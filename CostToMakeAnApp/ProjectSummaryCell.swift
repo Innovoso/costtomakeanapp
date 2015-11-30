@@ -10,4 +10,11 @@ import UIKit
 
 class ProjectSummaryCell: UICollectionViewCell {
     
+    @IBOutlet weak var answerIcon: UIImageView!
+    @IBOutlet weak var answerDescription: UILabel!
+    
+    func configure(image: UIImage?, description: String?) {
+        answerDescription.text = description
+        answerIcon.image = image
+    }
 }

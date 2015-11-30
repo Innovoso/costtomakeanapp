@@ -85,7 +85,9 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         if vc.questionNumber + 1 < Questions.count {
             moveToNextQuestion(vc.questionNumber + 1)
         } else {
-            print("This is the last question")
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let projectSummaryViewController = storyBoard.instantiateViewControllerWithIdentifier("ProjectSummaryViewController") as! ProjectSummaryViewController
+            presentViewController(projectSummaryViewController, animated: true, completion: nil)
         }
     }
     
