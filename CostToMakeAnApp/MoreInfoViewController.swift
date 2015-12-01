@@ -8,24 +8,35 @@
 
 import UIKit
 
-class MoreInfoViewController: UIViewController {
-
+class MoreInfoViewController: UIViewController, CMPassThroughViewDelegate {
+    
     @IBOutlet weak var moreInfoCard: UIView!
     
     var screenSize: CGRect = UIScreen.mainScreen().bounds
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
-
-        view.userInteractionEnabled = false
+        if let view = view as? CMPassThroughView {
+            view.delegate = self
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    // MARK: - CMPassThroughViewDelegate
+    
+    func hitTest(point: CGPoint, withEvent event: UIEvent?) -> UIView? {
+        if CGRectContainsPoint(moreInfoCard.frame, point) {
+            return moreInfoCard
+        }
+        return nil
     }
     
     

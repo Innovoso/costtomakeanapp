@@ -134,7 +134,7 @@
                         <viewControllerLayoutGuide type="top" id="BMr-As-KnA"/>
                         <viewControllerLayoutGuide type="bottom" id="bOB-O8-ctc"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="T7Y-QL-cdE">
+                    <view key="view" contentMode="scaleToFill" id="T7Y-QL-cdE" customClass="CMPassThroughView" customModule="CostToMakeAnApp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>

@@ -61,7 +61,9 @@ class ProjectSummaryViewController: UIViewController, UICollectionViewDelegate, 
     // BUTTON TAPS
     // ===========
     
-    @IBAction func startAgainButtonTapped(sender: UIButton) {    
+    @IBAction func startAgainButtonTapped(sender: UIButton) {
+        OptionsManager.sharedInstance.startAgainButtonTapped()
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func startProjectWithUsButtonTapped(sender: UIButton) {

@@ -27,6 +27,7 @@
 		EC0DDEC21BFED910000B0E53 /* questionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0DDEC11BFED910000B0E53 /* questionsModel.swift */; };
 		EC0DDEC41BFF1104000B0E53 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0DDEC31BFF1104000B0E53 /* Helpers.swift */; };
 		EC7579661C0C4F7700883762 /* MoreInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7579651C0C4F7700883762 /* MoreInfoViewController.swift */; };
+		EC75796A1C0D970800883762 /* CMPassThroughView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7579691C0D970800883762 /* CMPassThroughView.swift */; };
 		ECE04A271C02BD650048A960 /* OptionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE04A261C02BD650048A960 /* OptionsManager.swift */; };
 		ECE04A2D1C02F0A10048A960 /* ProjectSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE04A2C1C02F0A10048A960 /* ProjectSummaryViewController.swift */; };
 		ECE04A331C03FFA70048A960 /* ProjectSummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE04A321C03FFA70048A960 /* ProjectSummaryCell.swift */; };
@@ -76,6 +77,7 @@
 		EC0DDEC11BFED910000B0E53 /* questionsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = questionsModel.swift; sourceTree = "<group>"; };
 		EC0DDEC31BFF1104000B0E53 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		EC7579651C0C4F7700883762 /* MoreInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreInfoViewController.swift; sourceTree = "<group>"; };
+		EC7579691C0D970800883762 /* CMPassThroughView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CMPassThroughView.swift; sourceTree = "<group>"; };
 		ECE04A261C02BD650048A960 /* OptionsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsManager.swift; sourceTree = "<group>"; };
 		ECE04A2C1C02F0A10048A960 /* ProjectSummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectSummaryViewController.swift; sourceTree = "<group>"; };
 		ECE04A321C03FFA70048A960 /* ProjectSummaryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectSummaryCell.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 		0CCE27F41BF9C68C0084CF53 /* CostToMakeAnApp */ = {
 			isa = PBXGroup;
 			children = (
+				EC7579681C0D96E300883762 /* Commons */,
 				EC0DDEA61BF9CEDF000B0E53 /* Resources */,
 				0CCE27F51BF9C68C0084CF53 /* AppDelegate.swift */,
 				ECE04A2E1C02F1200048A960 /* HomePage */,
@@ -199,6 +202,14 @@
 				EC7579651C0C4F7700883762 /* MoreInfoViewController.swift */,
 			);
 			name = MoreInfo;
+			sourceTree = "<group>";
+		};
+		EC7579681C0D96E300883762 /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				EC7579691C0D970800883762 /* CMPassThroughView.swift */,
+			);
+			name = Commons;
 			sourceTree = "<group>";
 		};
 		ECE04A2E1C02F1200048A960 /* HomePage */ = {
@@ -383,6 +394,7 @@
 				EC0DDEC01BFD71A2000B0E53 /* HomePageCell.swift in Sources */,
 				ECE04A2D1C02F0A10048A960 /* ProjectSummaryViewController.swift in Sources */,
 				ECE04A271C02BD650048A960 /* OptionsManager.swift in Sources */,
+				EC75796A1C0D970800883762 /* CMPassThroughView.swift in Sources */,
 				0CCE27F61BF9C68C0084CF53 /* AppDelegate.swift in Sources */,
 				EC0DDEC21BFED910000B0E53 /* questionsModel.swift in Sources */,
 			);
