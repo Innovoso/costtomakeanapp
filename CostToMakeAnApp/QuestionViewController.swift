@@ -80,10 +80,6 @@ class QuestionViewController: UIViewController, UICollectionViewDataSource, UICo
                 }, completion: { finished in
                 self.delegate?.questionViewController(self, didSelectItem: indexPath)
                     
-                Helper.delay(1.0) {
-                    cell.backgroundColor = UIColor(red: 246/255, green: 246/255, blue: 246/255, alpha: 1.0)
-                }
-                    
             })
         }
     }
