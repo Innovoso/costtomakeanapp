@@ -11,13 +11,14 @@ import UIKit
 class ProjectSummaryViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     @IBOutlet weak var collectionView: UICollectionView!
-
+    @IBOutlet weak var totalCostLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
         collectionView.delegate = self
-        
+        OptionsManager.sharedInstance.totalCostLabel = totalCostLabel
+        OptionsManager.sharedInstance.showTotalPrice()
     }
 
     override func didReceiveMemoryWarning() {

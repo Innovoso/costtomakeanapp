@@ -31,4 +31,8 @@ class OptionsManager {
         totalCostLabel.text = "$0"
     }
     
+    func showTotalPrice(){
+        totalCostLabel.text = "$\(totalPrice)"
+    }
+    
 }

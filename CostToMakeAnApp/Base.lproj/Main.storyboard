@@ -536,6 +536,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="collectionView" destination="b9m-0g-sE0" id="TYM-QH-XeN"/>
+                        <outlet property="totalCostLabel" destination="LfW-h1-x1N" id="fsK-lZ-5V3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aZ8-dg-3pK" userLabel="First Responder" sceneMemberID="firstResponder"/>
