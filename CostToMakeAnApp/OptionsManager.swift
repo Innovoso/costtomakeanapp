@@ -17,7 +17,6 @@ class OptionsManager {
     var totalCostLabel: UILabel!
     
     init() {
-        print("Created OptionsManager instance")
     }
     
     func addToPrice(itemToBeAdded:Int) {

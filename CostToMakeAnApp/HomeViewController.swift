@@ -12,6 +12,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var totalCostLabel: UILabel!
+    var moreInfoCardViewController:MoreInfoViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,19 +21,29 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         collectionView.delegate = self
         collectionView.scrollEnabled = false
         OptionsManager.sharedInstance.totalCostLabel = totalCostLabel
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let moreInfoCardVC = storyboard.instantiateViewControllerWithIdentifier("MoreInfoViewController") as! MoreInfoViewController
-    
-        addChildViewController(moreInfoCardVC)
-        self.view.addSubview(moreInfoCardVC.view)
-        moreInfoCardVC.view.frame = self.view.bounds
-        moreInfoCardVC.didMoveToParentViewController(self)
+        instantiateChildVC()
     }
     
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
+    
+    
+    // ====================================
+    // INSTANTIATE MORE INFO VC AS CHILD VC
+    // ====================================
+    
+    func instantiateChildVC(){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let moreInfoCardVC = storyboard.instantiateViewControllerWithIdentifier("MoreInfoViewController") as! MoreInfoViewController
+        
+        addChildViewController(moreInfoCardVC)
+        self.view.addSubview(moreInfoCardVC.view)
+        moreInfoCardVC.view.frame = self.view.bounds
+        moreInfoCardVC.didMoveToParentViewController(self)
+        moreInfoCardViewController = moreInfoCardVC
+    }
+    
     
     // ============
     // START BUTTON
@@ -58,8 +69,8 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         }
         collectionView.backgroundColor = Questions(rawValue: indexPath.row)?.backgroundColour
         self.view.backgroundColor = Questions(rawValue: indexPath.row)?.backgroundColour
+        moreInfoCardViewController.moreInfoCard.backgroundColor = Questions(rawValue: indexPath.row)?.moreInfoCardColour
 
-        
         return cell
     }
     
@@ -96,10 +107,12 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         } else {
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
             let projectSummaryViewController = storyBoard.instantiateViewControllerWithIdentifier("ProjectSummaryViewController") as! ProjectSummaryViewController
-            presentViewController(projectSummaryViewController, animated: true, completion: nil)
+            presentViewController(projectSummaryViewController, animated: true, completion: { () -> Void in
+                self.moveToNextQuestion(0)
+            })
         }
     }
-
+    
     
     // =======
     // HELPERS
@@ -108,6 +121,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     func moveToNextQuestion(questionNumber: Int) {
         let newIndex = NSIndexPath(forItem: questionNumber, inSection: 0)
         self.collectionView?.scrollToItemAtIndexPath(newIndex, atScrollPosition: UICollectionViewScrollPosition.Left, animated: true)
+        
     }
 }
 
