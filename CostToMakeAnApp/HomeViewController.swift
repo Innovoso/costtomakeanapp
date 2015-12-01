@@ -10,14 +10,8 @@ import UIKit
 
 class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate, QuestionViewControllerDelegate {
 
-    @IBOutlet weak var moreInfoButton: UILabel!
-    @IBOutlet weak var moreInfoText: UILabel!
-    @IBOutlet weak var screenOverlay: UIView!
-    @IBOutlet weak var infoCard: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var totalCostLabel: UILabel!
-    
-    var screenSize: CGRect = UIScreen.mainScreen().bounds
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +20,18 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         collectionView.delegate = self
         collectionView.scrollEnabled = false
         OptionsManager.sharedInstance.totalCostLabel = totalCostLabel
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let moreInfoCardVC = storyboard.instantiateViewControllerWithIdentifier("MoreInfoViewController") as! MoreInfoViewController
+    
+        addChildViewController(moreInfoCardVC)
+        self.view.addSubview(moreInfoCardVC.view)
+        moreInfoCardVC.view.frame = self.view.bounds
+        moreInfoCardVC.didMoveToParentViewController(self)
+    }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return true
     }
     
     // ============
@@ -50,6 +56,9 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         if let cell = cell as? HomePageCell {
             cell.contentViewController.delegate = self
         }
+        collectionView.backgroundColor = Questions(rawValue: indexPath.row)?.backgroundColour
+        self.view.backgroundColor = Questions(rawValue: indexPath.row)?.backgroundColour
+
         
         return cell
     }
@@ -58,7 +67,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         if let cell = cell as? HomePageCell {
             cell.configure(indexPath.row)
             cell.addViewControllerToParentViewController(self)
-            moreInfoText.text = Questions(rawValue: indexPath.row)?.infoCard
+//            moreInfoText.text = Questions(rawValue: indexPath.row)?.infoCard
         }
     }
     
@@ -89,46 +98,6 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             let projectSummaryViewController = storyBoard.instantiateViewControllerWithIdentifier("ProjectSummaryViewController") as! ProjectSummaryViewController
             presentViewController(projectSummaryViewController, animated: true, completion: nil)
         }
-    }
-    
-    
-    // =========
-    // INFO CARD
-    // =========
-    
-    @IBAction func moreInfoButtonPressed(sender: UIButton) {
-        UIView.animateWithDuration(1.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
-            self.infoCard.center = CGPoint(x: self.screenSize.width/2, y: self.screenSize.height - 200)
-            self.screenOverlay.alpha = 0.5
-            
-            }, completion: nil)
-    }
-    
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        for touch in (touches) {
-            let location = touch.locationInView(self.view)
-
-            if infoCard.frame.contains(location) {
-                infoCard.center = location
-            }
-        }
-    }
-    
-    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        for touch in (touches) {
-            let location = touch.locationInView(self.view)
-            
-            if infoCard.frame.contains(location) {
-                infoCard.center = location
-            }
-        }
-    }
-    
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        UIView.animateWithDuration(1.0, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.5, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
-            self.infoCard.center = CGPoint(x: self.screenSize.width/2, y: self.screenSize.height + 100)
-            self.screenOverlay.alpha = 0
-            }, completion: nil)
     }
 
     
