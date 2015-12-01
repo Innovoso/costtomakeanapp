@@ -119,6 +119,85 @@ enum Questions:Int {
         }
     }
     
+    var backgroundColour:UIColor {
+        let blueColour = UIColor(red: 40/255, green: 171/255, blue: 227/255, alpha: 1)
+        let greenColour = UIColor(red: 26/255, green: 201/255, blue: 141/255, alpha: 1)
+        let orangeColour = UIColor(red: 232/255, green: 183/255, blue: 26/255, alpha: 1)
+        let redColour = UIColor(red: 219/255, green: 51/255, blue: 64/255, alpha: 1)
+        
+        switch self {
+        case .AppType:
+            return blueColour
+        case .Login:
+            return greenColour
+        case .Profiles:
+            return orangeColour
+        case .MoneyMaking:
+            return redColour
+        case .RateOrReview:
+            return blueColour
+        case .API:
+            return greenColour
+        case .Design:
+            return orangeColour
+        case .Icon:
+            return redColour
+        }
+    }
+    
+    var cellColour:UIColor {
+        let blueColour = UIColor(red: 40/255, green: 171/255, blue: 227/255, alpha: 1)
+        let greenColour = UIColor(red: 26/255, green: 201/255, blue: 141/255, alpha: 1)
+        let orangeColour = UIColor(red: 232/255, green: 183/255, blue: 26/255, alpha: 1)
+        let redColour = UIColor(red: 219/255, green: 51/255, blue: 64/255, alpha: 1)
+        
+        switch self {
+        case .AppType:
+            return greenColour
+        case .Login:
+            return blueColour
+        case .Profiles:
+            return greenColour
+        case .MoneyMaking:
+            return orangeColour
+        case .RateOrReview:
+            return redColour
+        case .API:
+            return blueColour
+        case .Design:
+            return greenColour
+        case .Icon:
+            return orangeColour
+        }
+    }
+    
+    var moreInfoCardColour:UIColor {
+        let blueColour = UIColor(red: 44/255, green: 191/255, blue: 254/255, alpha: 1)
+        let greenColour = UIColor(red: 0, green: 221/255, blue: 155/255, alpha: 1)
+        let orangeColour = UIColor(red: 248/255, green: 195/255, blue: 38/255, alpha: 1)
+        let redColour = UIColor(red: 236/255, green: 71/255, blue: 84/255, alpha: 1)
+        
+        switch self {
+        case .AppType:
+            return greenColour
+        case .Login:
+            return blueColour
+        case .Profiles:
+            return greenColour
+        case .MoneyMaking:
+            return orangeColour
+        case .RateOrReview:
+            return redColour
+        case .API:
+            return blueColour
+        case .Design:
+            return greenColour
+        case .Icon:
+            return orangeColour
+        }
+    }
+    
+    
     static var count: Int { return Questions.Icon.hashValue + 1}
 
 }

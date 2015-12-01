@@ -64,6 +64,7 @@ class QuestionViewController: UIViewController, UICollectionViewDataSource, UICo
             cell.layer.shadowOffset = CGSizeMake(0, 2)
             cell.layer.shadowRadius = 2
             cell.layer.shadowOpacity = 0.8
+            cell.backgroundColor = Questions(rawValue: questionNumber)?.cellColour
         }
 
         return cell
