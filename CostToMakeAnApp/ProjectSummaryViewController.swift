@@ -8,17 +8,17 @@
 
 import UIKit
 
-class ProjectSummaryViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class ProjectSummaryViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, ProjectSummaryCellDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var totalCostLabel: UILabel!
+    @IBOutlet weak var totalPriceLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
         collectionView.delegate = self
-        OptionsManager.sharedInstance.totalCostLabel = totalCostLabel
-        OptionsManager.sharedInstance.showTotalPrice()
+        OptionsManager.sharedInstance.totalPriceLabel = totalPriceLabel
+        OptionsManager.sharedInstance.updateAndShowPriceLabel()
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,6 +47,7 @@ class ProjectSummaryViewController: UIViewController, UICollectionViewDelegate, 
             let description = Questions(rawValue: indexPath.row)?.summaryDescriptions[selectedAnswer]
             let image = Questions(rawValue: indexPath.row)?.images[selectedAnswer]
             cell.configure(image, description: description)
+            cell.delegate = self
             cell.layer.shadowColor = UIColor.blackColor().CGColor
             cell.layer.shadowOffset = CGSizeMake(0, 2)
             cell.layer.shadowRadius = 2
@@ -57,9 +58,22 @@ class ProjectSummaryViewController: UIViewController, UICollectionViewDelegate, 
     }
     
     
+    // =============================
+    // PROJECT SUMMARY CELL DELEGATE
+    // =============================
+    
+    func projectSummaryCellChangeButtonTapped(cell: ProjectSummaryCell) {
+        print(collectionView.indexPathForCell(cell)!.row)
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
+    
     // ===========
     // BUTTON TAPS
     // ===========
+    
     
     @IBAction func startAgainButtonTapped(sender: UIButton) {
         OptionsManager.sharedInstance.startAgainButtonTapped()
