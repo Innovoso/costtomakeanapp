@@ -76,6 +76,7 @@ class QuestionViewController: UIViewController, UICollectionViewDataSource, UICo
             UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
                 cell.backgroundColor = UIColor(red: 233/255, green: 105/255, blue: 105/255, alpha: 1.0)
                 OptionsManager.sharedInstance.addToPrice(indexPath.row)
+                OptionsManager.sharedInstance.updateAndShowPriceLabel()
                 
                 }, completion: { finished in
                 self.delegate?.questionViewController(self, didSelectItem: indexPath)
