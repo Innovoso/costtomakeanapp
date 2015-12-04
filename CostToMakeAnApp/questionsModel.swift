@@ -197,6 +197,32 @@ enum Questions:Int {
         }
     }
     
+    var progressBarColour:UIColor {
+        let blueColour = UIColor(red: 98/255, green: 208/255, blue: 255/255, alpha: 1)
+        let greenColour = UIColor(red: 31/255, green: 228/255, blue: 160/255, alpha: 1)
+        let orangeColour = UIColor(red: 251/255, green: 208/255, blue: 69/255, alpha: 1)
+        let redColour = UIColor(red: 255/255, green: 98/255, blue: 110/255, alpha: 1)
+        
+        switch self {
+        case .AppType:
+            return blueColour
+        case .Login:
+            return greenColour
+        case .Profiles:
+            return orangeColour
+        case .MoneyMaking:
+            return redColour
+        case .RateOrReview:
+            return blueColour
+        case .API:
+            return greenColour
+        case .Design:
+            return orangeColour
+        case .Icon:
+            return redColour
+        }
+    }
+    
     
     static var count: Int { return Questions.Icon.hashValue + 1}
 
