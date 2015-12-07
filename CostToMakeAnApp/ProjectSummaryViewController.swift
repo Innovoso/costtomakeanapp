@@ -8,10 +8,16 @@
 
 import UIKit
 
+@objc protocol ProjectSummaryDelegate {
+    func projectSummaryChangeButtonTapped(cellToMoveTo: Int)
+}
+
 class ProjectSummaryViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, ProjectSummaryCellDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var totalPriceLabel: UILabel!
+    
+    weak var delegate:ProjectSummaryDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,9 +69,14 @@ class ProjectSummaryViewController: UIViewController, UICollectionViewDelegate, 
     // =============================
     
     func projectSummaryCellChangeButtonTapped(cell: ProjectSummaryCell) {
-        print(collectionView.indexPathForCell(cell)!.row)
+        let cellNumber = Int(collectionView.indexPathForCell(cell)!.row)
+        OptionsManager.sharedInstance.changeButtonTapped(cellNumber)
         
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.delegate?.projectSummaryChangeButtonTapped(cellNumber)
+
+        self.dismissViewControllerAnimated(true) { () -> Void in
+        }
+        
     }
     
     

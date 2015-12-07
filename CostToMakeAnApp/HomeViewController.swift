@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate, QuestionViewControllerDelegate {
+class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate, QuestionViewControllerDelegate, ProjectSummaryDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var totalPriceLabel: UILabel!
@@ -111,7 +111,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     // =================================
 
     func questionViewController(vc: QuestionViewController, didSelectItem: NSIndexPath) {
-        if vc.questionNumber + 1 < Questions.count {
+        if vc.questionNumber + 1 < Questions.count && OptionsManager.sharedInstance.summaryPageReached == false {
             moveToNextQuestion(vc.questionNumber + 1)
             
             UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.5, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
@@ -123,11 +123,22 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         } else {
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
             let projectSummaryViewController = storyBoard.instantiateViewControllerWithIdentifier("ProjectSummaryViewController") as! ProjectSummaryViewController
+            projectSummaryViewController.delegate = self
             presentViewController(projectSummaryViewController, animated: true, completion: { () -> Void in
-//                self.moveToNextQuestion(0)
+                self.moveToNextQuestion(0)
             })
         }
     }
+    
+    
+    // ========================
+    // PROJECT SUMMARY DELEGATE
+    // ========================
+    
+    func projectSummaryChangeButtonTapped(cellToMoveTo: Int) {
+        moveToNextQuestionWithoutScroll(cellToMoveTo)
+    }
+    
     
     
     // =======
@@ -137,6 +148,11 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     func moveToNextQuestion(questionNumber: Int) {
         let newIndex = NSIndexPath(forItem: questionNumber, inSection: 0)
         self.collectionView?.scrollToItemAtIndexPath(newIndex, atScrollPosition: UICollectionViewScrollPosition.Left, animated: true)
+    }
+    
+    func moveToNextQuestionWithoutScroll(questionNumber: Int) {
+        let newIndex = NSIndexPath(forItem: questionNumber, inSection: 0)
+        self.collectionView?.scrollToItemAtIndexPath(newIndex, atScrollPosition: UICollectionViewScrollPosition.Left, animated: false)
     }
 }
 

@@ -20,6 +20,8 @@ class OptionsManager {
     var numberOfApps = 1
     var numberOfPages = 0
     var typeOfDesign = "Unknown"
+    var moveToPageNumber = 0
+    var summaryPageReached = false
     
     init() {
     }
@@ -147,6 +149,11 @@ class OptionsManager {
         numberOfPages = 0
         typeOfDesign = "Unknown"
         totalPriceLabel.text = "$0"
+        summaryPageReached = false
+    }
+    
+    func changeButtonTapped(cellNumber:Int) {
+        summaryPageReached = true
     }
     
 }

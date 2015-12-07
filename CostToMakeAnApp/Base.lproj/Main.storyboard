@@ -721,6 +721,9 @@
                                         <state key="normal" title="BACK">
                                             <color key="titleColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="backButtonTapped:" destination="dNm-na-feG" eventType="touchUpInside" id="G0E-9U-kpG"/>
+                                        </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackArrow" translatesAutoresizingMaskIntoConstraints="NO" id="Rwd-jW-MqO">
                                         <rect key="frame" x="34" y="37" width="26" height="19"/>
