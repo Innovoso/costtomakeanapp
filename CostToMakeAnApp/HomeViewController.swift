@@ -137,6 +137,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     func projectSummaryChangeButtonTapped(cellToMoveTo: Int) {
         moveToNextQuestionWithoutScroll(cellToMoveTo)
+        OptionsManager.sharedInstance.updateAndShowPriceLabel()
     }
     
     

@@ -154,6 +154,7 @@ class OptionsManager {
     
     func changeButtonTapped(cellNumber:Int) {
         summaryPageReached = true
+        print(cellNumber)
     }
     
 }

@@ -74,9 +74,7 @@ class ProjectSummaryViewController: UIViewController, UICollectionViewDelegate, 
         
         self.delegate?.projectSummaryChangeButtonTapped(cellNumber)
 
-        self.dismissViewControllerAnimated(true) { () -> Void in
-        }
-        
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     
