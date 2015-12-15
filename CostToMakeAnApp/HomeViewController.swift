@@ -23,7 +23,6 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.scrollEnabled = false
-        OptionsManager.sharedInstance.totalPriceLabel = totalPriceLabel
         instantiateChildVC()
     }
     
@@ -31,10 +30,21 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         return true
     }
     
+    override func viewWillAppear(animated: Bool) {
+        OptionsManager.sharedInstance.totalPriceLabel = totalPriceLabel
+        OptionsManager.sharedInstance.calculatePrice(nil)
+    }
+    
     override func viewDidAppear(animated: Bool) {
-        UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.5, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
-            self.progressBar.frame = CGRectMake(0, 0, self.view.frame.width/8, 6)
-            }, completion: nil)
+        if OptionsManager.sharedInstance.summaryPageReached {
+            animateProgressBar()
+        } else {
+            if !OptionsManager.sharedInstance.moreInfoCardAppeared {
+                UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.5, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
+                    self.progressBar.frame = CGRectMake(0, 0, self.view.frame.width/8, 6)
+                }, completion: nil)
+            }
+        }
     }
     
     
@@ -113,13 +123,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     func questionViewController(vc: QuestionViewController, didSelectItem: NSIndexPath) {
         if vc.questionNumber + 1 < Questions.count && OptionsManager.sharedInstance.summaryPageReached == false {
             moveToNextQuestion(vc.questionNumber + 1)
-            
-            UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.5, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
-                let percentageProgress = CGFloat(1.0-(6.0 - Double(vc.questionNumber))/8.0)
-                self.progressBar.frame = CGRectMake(0, 0, self.view.frame.width*percentageProgress, 6)
-                self.progressBar.backgroundColor = Questions(rawValue: vc.questionNumber)?.progressBarColour
-                }, completion: nil)
-
+            animateProgressBar()
         } else {
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
             let projectSummaryViewController = storyBoard.instantiateViewControllerWithIdentifier("ProjectSummaryViewController") as! ProjectSummaryViewController
@@ -137,7 +141,6 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     func projectSummaryChangeButtonTapped(cellToMoveTo: Int) {
         moveToNextQuestionWithoutScroll(cellToMoveTo)
-        OptionsManager.sharedInstance.updateAndShowPriceLabel()
     }
     
     
@@ -154,6 +157,14 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     func moveToNextQuestionWithoutScroll(questionNumber: Int) {
         let newIndex = NSIndexPath(forItem: questionNumber, inSection: 0)
         self.collectionView?.scrollToItemAtIndexPath(newIndex, atScrollPosition: UICollectionViewScrollPosition.Left, animated: false)
+    }
+    
+    func animateProgressBar() {
+        UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.5, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
+            let percentageProgress = CGFloat(1.0-(6.0 - Double(OptionsManager.sharedInstance.currentQuestionNumber - 1))/8.0)
+            self.progressBar.frame = CGRectMake(0, 0, self.view.frame.width*percentageProgress, 6)
+            self.progressBar.backgroundColor = Questions(rawValue: OptionsManager.sharedInstance.currentQuestionNumber - 1)?.progressBarColour
+            }, completion: nil)
     }
 }
 
