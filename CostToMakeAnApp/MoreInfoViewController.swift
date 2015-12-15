@@ -29,6 +29,19 @@ class MoreInfoViewController: UIViewController, CMPassThroughViewDelegate {
         }
         screenOverlay.alpha = 0
         downArrow.hidden = true
+        moreInfoCard.hidden = true
+    }
+
+    
+    override func viewDidAppear(animated: Bool) {
+        if OptionsManager.sharedInstance.moreInfoCardAppeared == false {
+            self.moreInfoCard.center = CGPoint(x: self.screenSize.width/2, y: self.screenSize.height + 285)
+            UIView.animateWithDuration(0.8, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.5, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
+                self.moreInfoCard.hidden = false
+                self.moreInfoCard.center = CGPoint(x: self.screenSize.width/2, y: self.screenSize.height + 85)
+                }, completion: nil)
+        }
+        OptionsManager.sharedInstance.moreInfoCardAppeared = true
     }
 
     override func didReceiveMemoryWarning() {
