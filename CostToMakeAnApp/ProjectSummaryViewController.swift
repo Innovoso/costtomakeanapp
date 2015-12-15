@@ -24,7 +24,7 @@ class ProjectSummaryViewController: UIViewController, UICollectionViewDelegate, 
         collectionView.dataSource = self
         collectionView.delegate = self
         OptionsManager.sharedInstance.totalPriceLabel = totalPriceLabel
-        OptionsManager.sharedInstance.updateAndShowPriceLabel()
+        OptionsManager.sharedInstance.calculatePrice(nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -61,6 +61,10 @@ class ProjectSummaryViewController: UIViewController, UICollectionViewDelegate, 
         }
         
         return cell
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        return CGSizeMake(collectionView.bounds.width, 89)
     }
     
     
