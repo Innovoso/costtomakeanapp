@@ -17,7 +17,7 @@ class QuestionViewController: UIViewController, UICollectionViewDataSource, UICo
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var questionNumber:Int = 0
+    var questionNumber = 0
     var screenSize: CGRect = UIScreen.mainScreen().bounds
     weak var delegate:QuestionViewControllerDelegate?
     
@@ -29,7 +29,6 @@ class QuestionViewController: UIViewController, UICollectionViewDataSource, UICo
     class func loadFromNib(questionNumber:Int) -> QuestionViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewControllerWithIdentifier("QuestionViewController") as! QuestionViewController
-        vc.questionNumber = questionNumber
         return vc
     }
     
@@ -38,10 +37,16 @@ class QuestionViewController: UIViewController, UICollectionViewDataSource, UICo
     // LIFECYCLE
     // =========
     
+    override func viewDidAppear(animated: Bool) {
+        questionLabel.text = Questions(rawValue: questionNumber)?.title
+    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        questionLabel.text = Questions(rawValue: questionNumber)?.title
-        collectionView.reloadData()        
+        collectionView.reloadData()
+        Helper.delay(0.01) { () -> () in
+            self.questionLabel.text = Questions(rawValue: self.questionNumber)?.title
+        }
     }
     
     
@@ -75,8 +80,8 @@ class QuestionViewController: UIViewController, UICollectionViewDataSource, UICo
         if let cell = collectionView.cellForItemAtIndexPath(indexPath) as? AnswerCardCell {
             UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
                 cell.backgroundColor = UIColor(red: 233/255, green: 105/255, blue: 105/255, alpha: 1.0)
-                OptionsManager.sharedInstance.addToPrice(indexPath.row)
-                OptionsManager.sharedInstance.updateAndShowPriceLabel()
+                OptionsManager.sharedInstance.calculatePrice(indexPath.row)
+                self.delegate?.questionViewController(self, didSelectItem: indexPath)
                 
                 }, completion: { finished in
                 self.delegate?.questionViewController(self, didSelectItem: indexPath)
@@ -87,6 +92,14 @@ class QuestionViewController: UIViewController, UICollectionViewDataSource, UICo
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
         return 20
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        return CGSizeMake(collectionView.bounds.width, 117)
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        return UIEdgeInsetsMake(0, 0, 60, 0)
     }
     
 }
