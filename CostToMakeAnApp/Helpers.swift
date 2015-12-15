@@ -19,4 +19,10 @@ class Helper{
             dispatch_get_main_queue(), closure)
     }
     
+    static func setPriceLabels() -> String {
+        let price = OptionsManager.sharedInstance.totalPrice
+        let numberFormatter = NSNumberFormatter()
+        numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+        return numberFormatter.stringFromNumber(price)!
+    }
 }
