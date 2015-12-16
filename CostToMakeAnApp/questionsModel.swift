@@ -205,21 +205,21 @@ enum Questions:Int {
         
         switch self {
         case .AppType:
-            return blueColour
+            return greenColour
         case .Login:
-            return greenColour
-        case .Profiles:
-            return orangeColour
-        case .MoneyMaking:
-            return redColour
-        case .RateOrReview:
             return blueColour
-        case .API:
+        case .Profiles:
             return greenColour
-        case .Design:
+        case .MoneyMaking:
             return orangeColour
-        case .Icon:
+        case .RateOrReview:
             return redColour
+        case .API:
+            return blueColour
+        case .Design:
+            return greenColour
+        case .Icon:
+            return orangeColour
         }
     }
     
