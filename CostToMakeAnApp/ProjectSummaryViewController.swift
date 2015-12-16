@@ -16,6 +16,11 @@ class ProjectSummaryViewController: UIViewController, UICollectionViewDelegate, 
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var totalPriceLabel: UILabel!
+    @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var headerViewHeightContraint: NSLayoutConstraint!
+    @IBOutlet weak var yourAppEstimateLabel: UILabel!
+    @IBOutlet weak var startAgainButton: UIButton!
+    @IBOutlet weak var totalPriceLabelWidthConstraint: NSLayoutConstraint!
     
     weak var delegate:ProjectSummaryDelegate?
     
@@ -25,6 +30,8 @@ class ProjectSummaryViewController: UIViewController, UICollectionViewDelegate, 
         collectionView.delegate = self
         OptionsManager.sharedInstance.totalPriceLabel = totalPriceLabel
         OptionsManager.sharedInstance.calculatePrice(nil)
+        self.collectionView.showsVerticalScrollIndicator = false
+        setAnchorPoint(CGPoint(x: CGFloat(0.5), y: CGFloat(1)), forView: totalPriceLabel)
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,6 +43,20 @@ class ProjectSummaryViewController: UIViewController, UICollectionViewDelegate, 
         return true
     }
     
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        let percentageChange = min(max(0,scrollView.contentOffset.y / 100), 1)
+        
+        let minHeight:CGFloat = 57
+        let viewHeightChange = 100 * (1 - percentageChange)
+        headerViewHeightContraint.constant = minHeight + viewHeightChange
+        
+        yourAppEstimateLabel.alpha = CGFloat(1 - min(percentageChange * 2, 1))
+        startAgainButton.alpha = CGFloat(1 - min(percentageChange * 2, 1))
+        
+        totalPriceLabel.transform = CGAffineTransformMakeScale(max(0.5, 1 - percentageChange/2), max(0.5,1 - percentageChange/2))
+    }
+
     
     // ===============
     // COLLECTION VIEW
@@ -67,6 +88,10 @@ class ProjectSummaryViewController: UIViewController, UICollectionViewDelegate, 
         return CGSizeMake(collectionView.bounds.width, 89)
     }
     
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        return UIEdgeInsetsMake(120, 0, 0, 0)
+    }
+    
     
     // =============================
     // PROJECT SUMMARY CELL DELEGATE
@@ -94,6 +119,29 @@ class ProjectSummaryViewController: UIViewController, UICollectionViewDelegate, 
     }
     
     @IBAction func startProjectWithUsButtonTapped(sender: UIButton) {
+    }
+
+}
+
+
+extension ProjectSummaryViewController {
+    
+    func setAnchorPoint(anchorPoint: CGPoint, forView view: UIView) {
+        var newPoint = CGPointMake(view.bounds.size.width * anchorPoint.x, view.bounds.size.height * anchorPoint.y)
+        var oldPoint = CGPointMake(view.bounds.size.width * view.layer.anchorPoint.x, view.bounds.size.height * view.layer.anchorPoint.y)
+        
+        newPoint = CGPointApplyAffineTransform(newPoint, view.transform)
+        oldPoint = CGPointApplyAffineTransform(oldPoint, view.transform)
+        
+        var position = view.layer.position
+        position.x -= oldPoint.x
+        position.x += newPoint.x
+        
+        position.y -= oldPoint.y
+        position.y += newPoint.y
+        
+        view.layer.position = position
+        view.layer.anchorPoint = anchorPoint
     }
 
 }
