@@ -11,10 +11,10 @@
         </mutableArray>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Launch Page View Controller-->
         <scene sceneID="gSk-WT-Iym">
             <objects>
-                <viewController id="DnO-o9-qcR" sceneMemberID="viewController">
+                <viewController id="DnO-o9-qcR" customClass="LaunchPageViewController" customModule="CostToMakeAnApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="a2N-NK-myl"/>
                         <viewControllerLayoutGuide type="bottom" id="Rwf-at-QfZ"/>

@@ -32,6 +32,7 @@
 		ECE04A271C02BD650048A960 /* OptionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE04A261C02BD650048A960 /* OptionsManager.swift */; };
 		ECE04A2D1C02F0A10048A960 /* ProjectSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE04A2C1C02F0A10048A960 /* ProjectSummaryViewController.swift */; };
 		ECE04A331C03FFA70048A960 /* ProjectSummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE04A321C03FFA70048A960 /* ProjectSummaryCell.swift */; };
+		ECF0952A1C210129006B7889 /* LaunchPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF095291C210129006B7889 /* LaunchPageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		ECE04A261C02BD650048A960 /* OptionsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsManager.swift; sourceTree = "<group>"; };
 		ECE04A2C1C02F0A10048A960 /* ProjectSummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectSummaryViewController.swift; sourceTree = "<group>"; };
 		ECE04A321C03FFA70048A960 /* ProjectSummaryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectSummaryCell.swift; sourceTree = "<group>"; };
+		ECF095291C210129006B7889 /* LaunchPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LaunchPageViewController.swift; path = ../LaunchPageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 				EC7579681C0D96E300883762 /* Commons */,
 				EC0DDEA61BF9CEDF000B0E53 /* Resources */,
 				0CCE27F51BF9C68C0084CF53 /* AppDelegate.swift */,
+				ECF0952B1C210137006B7889 /* LaunchPage */,
 				ECE04A2E1C02F1200048A960 /* HomePage */,
 				EC7579671C0C4F7F00883762 /* MoreInfo */,
 				ECE04A2F1C02F1360048A960 /* Questions */,
@@ -257,6 +260,14 @@
 				ECE04A261C02BD650048A960 /* OptionsManager.swift */,
 			);
 			name = OptionsManager;
+			sourceTree = "<group>";
+		};
+		ECF0952B1C210137006B7889 /* LaunchPage */ = {
+			isa = PBXGroup;
+			children = (
+				ECF095291C210129006B7889 /* LaunchPageViewController.swift */,
+			);
+			name = LaunchPage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -406,6 +417,7 @@
 				ECA102BF1C1AD55B002941DE /* ContactTableViewController.swift in Sources */,
 				ECE04A2D1C02F0A10048A960 /* ProjectSummaryViewController.swift in Sources */,
 				ECE04A271C02BD650048A960 /* OptionsManager.swift in Sources */,
+				ECF0952A1C210129006B7889 /* LaunchPageViewController.swift in Sources */,
 				EC75796A1C0D970800883762 /* CMPassThroughView.swift in Sources */,
 				0CCE27F61BF9C68C0084CF53 /* AppDelegate.swift in Sources */,
 				EC0DDEC21BFED910000B0E53 /* questionsModel.swift in Sources */,
