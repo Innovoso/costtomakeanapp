@@ -13,6 +13,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var totalPriceLabel: UILabel!
     @IBOutlet weak var progressBar: UIView!
+    @IBOutlet weak var progressBarWidthConstraint: NSLayoutConstraint!
     
     
     var moreInfoCardViewController:MoreInfoViewController!
@@ -36,15 +37,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     override func viewDidAppear(animated: Bool) {
-        if OptionsManager.sharedInstance.summaryPageReached {
-            animateProgressBar()
-        } else {
-            if !OptionsManager.sharedInstance.moreInfoCardAppeared {
-                UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.5, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
-                    self.progressBar.frame = CGRectMake(0, 0, self.view.frame.width/8, 6)
-                }, completion: nil)
-            }
-        }
+        animateProgressBar()
     }
     
     
@@ -160,10 +153,13 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     func animateProgressBar() {
+        let questionNumber = Double(OptionsManager.sharedInstance.currentQuestionNumber)
+        let percentageProgress = CGFloat((1.0 + questionNumber) / 8.0)
+        self.progressBarWidthConstraint.constant = self.view.frame.width * percentageProgress
+        
         UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.5, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
-            let percentageProgress = CGFloat(1.0-(6.0 - Double(OptionsManager.sharedInstance.currentQuestionNumber - 1))/8.0)
-            self.progressBar.frame = CGRectMake(0, 0, self.view.frame.width*percentageProgress, 6)
-            self.progressBar.backgroundColor = Questions(rawValue: OptionsManager.sharedInstance.currentQuestionNumber - 1)?.progressBarColour
+            self.view.layoutIfNeeded()
+            self.progressBar.backgroundColor = Questions(rawValue: OptionsManager.sharedInstance.currentQuestionNumber)?.progressBarColour
             }, completion: nil)
     }
 }
