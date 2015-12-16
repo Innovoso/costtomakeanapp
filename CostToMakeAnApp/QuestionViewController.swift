@@ -39,6 +39,7 @@ class QuestionViewController: UIViewController, UICollectionViewDataSource, UICo
     
     override func viewDidAppear(animated: Bool) {
         questionLabel.text = Questions(rawValue: questionNumber)?.title
+        self.collectionView.showsVerticalScrollIndicator = false
     }
     
     override func viewWillAppear(animated: Bool) {
